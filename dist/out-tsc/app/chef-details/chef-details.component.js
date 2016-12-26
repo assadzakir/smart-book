@@ -28,10 +28,10 @@ export var ChefDetailsComponent = (function () {
     ChefDetailsComponent = __decorate([
         Component({
             selector: 'sb-chef-details',
-            templateUrl: 'chef-details.component.html'
+            templateUrl: './chef-details.component.html'
         }), 
         __metadata('design:paramtypes', [RecipeService, ActivatedRoute])
     ], ChefDetailsComponent);
     return ChefDetailsComponent;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/chef-details/chef-details.component.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/chef-details/chef-details.component.js.map

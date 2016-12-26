@@ -27,4 +27,4 @@ export var RecipeListComponent = (function () {
     ], RecipeListComponent);
     return RecipeListComponent;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/recipe-list/recipe-list.component.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/recipe-list/recipe-list.component.js.map

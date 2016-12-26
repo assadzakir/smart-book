@@ -9,4 +9,4 @@ export var firebaseConfig = {
     storageBucket: "smartbook-ba584.appspot.com",
     messagingSenderId: "991237789005"
 };
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/environments/firebase.config.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/environments/firebase.config.js.map

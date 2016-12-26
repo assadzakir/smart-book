@@ -6,4 +6,4 @@ export var Ingredients = (function () {
     }
     return Ingredients;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/shared/model/ingredients.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/shared/model/ingredients.js.map

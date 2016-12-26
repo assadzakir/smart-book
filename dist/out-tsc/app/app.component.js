@@ -22,4 +22,4 @@ export var AppComponent = (function () {
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/app.component.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/app.component.js.map

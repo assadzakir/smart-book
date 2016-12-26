@@ -14,4 +14,4 @@ import 'core-js/es6/set';
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/polyfills.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/polyfills.js.map

@@ -20,4 +20,4 @@ export var HomeComponent = (function () {
     ], HomeComponent);
     return HomeComponent;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/home/home.component.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/home/home.component.js.map

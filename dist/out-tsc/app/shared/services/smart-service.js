@@ -32,7 +32,7 @@ export var RecipeService = (function () {
     };
     RecipeService.prototype.createNewRecipe = function (chefId, recipe) {
         var recipeToSave = Object.assign({}, recipe, { chefId: chefId });
-        // Generate a new key under 'lessons' collection, db won't change currently
+        // Generate a new key under 'recipes' collection, db won't change currently
         var newRecipeKey = this.rootDb.child('recipes').push().key;
         var dataToSave = {};
         dataToSave[("recipes/" + newRecipeKey)] = recipeToSave;
@@ -87,4 +87,4 @@ export var RecipeService = (function () {
     ], RecipeService);
     return RecipeService;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/shared/services/smart-service.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/shared/services/smart-service.js.map

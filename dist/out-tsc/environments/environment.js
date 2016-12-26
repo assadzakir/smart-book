@@ -5,4 +5,4 @@
 export var environment = {
     production: false
 };
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/environments/environment.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/environments/environment.js.map

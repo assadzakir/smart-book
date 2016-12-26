@@ -32,7 +32,7 @@ export class RecipeService {
     createNewRecipe(chefId: string, recipe: Recipe): Observable<any> {
         const recipeToSave = Object.assign({}, recipe, {chefId});
 
-        // Generate a new key under 'lessons' collection, db won't change currently
+        // Generate a new key under 'recipes' collection, db won't change currently
         const newRecipeKey = this.rootDb.child('recipes').push().key;
 
         const dataToSave = {};

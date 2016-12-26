@@ -22,10 +22,10 @@ export var ChefListComponent = (function () {
     ChefListComponent = __decorate([
         Component({
             selector: 'sb-chef-list',
-            templateUrl: 'chef-list.component.html'
+            templateUrl: './chef-list.component.html'
         }), 
         __metadata('design:paramtypes', [RecipeService])
     ], ChefListComponent);
     return ChefListComponent;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/chef-list/chef-list.component.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/chef-list/chef-list.component.js.map

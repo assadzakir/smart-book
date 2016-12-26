@@ -27,10 +27,10 @@ export var NewRecipeComponent = (function () {
     NewRecipeComponent = __decorate([
         Component({
             selector: 'sb-new-recipe',
-            templateUrl: 'new-recipe.component.html'
+            templateUrl: './new-recipe.component.html'
         }), 
         __metadata('design:paramtypes', [RecipeService])
     ], NewRecipeComponent);
     return NewRecipeComponent;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/new-recipe/new-recipe.component.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/new-recipe/new-recipe.component.js.map

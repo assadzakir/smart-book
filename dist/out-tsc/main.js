@@ -7,4 +7,4 @@ if (environment.production) {
     enableProdMode();
 }
 platformBrowserDynamic().bootstrapModule(AppModule);
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/main.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/main.js.map

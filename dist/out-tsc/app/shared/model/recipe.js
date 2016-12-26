@@ -9,4 +9,4 @@ export var Recipe = (function () {
     }
     return Recipe;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/shared/model/recipe.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/shared/model/recipe.js.map

@@ -10,4 +10,4 @@ export var chefsRoutes = [
     indexRoute
 ];
 export var chefsRouting = RouterModule.forRoot(chefsRoutes);
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/routing.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/routing.js.map

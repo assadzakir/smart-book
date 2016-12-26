@@ -53,4 +53,4 @@ export var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/assad/Desktop/Projects/smartbook/src/app/app.module.js.map
+//# sourceMappingURL=/home/assad/Desktop/Projects/2017/smartbook/src/app/app.module.js.map
