@@ -1,0 +1,17 @@
+<md-grid-list cols="4 " style="background-color: #cfd8dc">
+  <md-grid-tile *ngFor="let chef of allChefs"  [routerLink]="chef.name">
+    <md-card >
+      <md-card-header>
+        <img md-card-avatar [src]='chef.imageURL'>
+        <md-card-title> {{chef.name}}</md-card-title>
+        <md-card-subtitle>Header subtitle</md-card-subtitle>
+      </md-card-header>
+      <img md-card-image-md-image style="height: 177px;width: 266px" [src]='chef.imageURL'>
+      <!--<md-card-content *ngFor="let item of recipe.steps">-->
+      <!--<p>{{item}}</p>-->
+      <!--</md-card-content>-->
+      <hr>
+    </md-card>
+  </md-grid-tile>
+
+</md-grid-list>

@@ -1,0 +1,23 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>{{ (chef$ | async)?.name  }}</md-card-title>
+  </md-card-header>
+  <img md-card-image-md-image style="height: 200px;width: 300px" [src]=' (chef$ | async)?.imageURL'>
+</md-card>
+<md-grid-list cols="3" style="background-color: #cfd8dc">
+  <md-grid-tile *ngFor="let recipe of recipes">
+    <md-card >
+      <md-card-header>
+        <img md-card-avatar [src]='recipe.imageURL'>
+        <md-card-title> {{recipe.name}}</md-card-title>
+        <md-card-subtitle>Header subtitle</md-card-subtitle>
+      </md-card-header>
+      <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
+      <!--<md-card-content *ngFor="let item of recipe.steps">-->
+      <!--<p>{{item}}</p>-->
+      <!--</md-card-content>-->
+      <hr>
+    </md-card>
+  </md-grid-tile>
+
+</md-grid-list>

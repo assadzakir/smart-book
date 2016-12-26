@@ -1,0 +1,8 @@
+<form autocomplete="off" novalidate [formGroup]="form">
+  <div class="form-field">
+    <label>Name: </label>
+    <input type="text" formControlName="name">
+    <span style="color: red" *ngIf="form.get('name').dirty && form.get('name').hasError('required')">Field required</span>
+  </div>
+
+</form>
