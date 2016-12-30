@@ -16,6 +16,7 @@ import { Observable, Subject } from "rxjs";
 export var RecipeService = (function () {
     function RecipeService(af, fb) {
         this.af = af;
+        this.subject = new Subject();
         this.recipes$ = this.af.database.list('recipes');
         this.chefs$ = this.af.database.list('chefs');
         this.rootDb = fb.database().ref(); // To get the root firebase ref
@@ -31,22 +32,22 @@ export var RecipeService = (function () {
         return this.chefs$;
     };
     RecipeService.prototype.createNewRecipe = function (chefId, recipe) {
+        var _this = this;
         var recipeToSave = Object.assign({}, recipe, { chefId: chefId });
         // Generate a new key under 'recipes' collection, db won't change currently
         var newRecipeKey = this.rootDb.child('recipes').push().key;
         var dataToSave = {};
         dataToSave[("recipes/" + newRecipeKey)] = recipeToSave;
         dataToSave[("recipesPerChef/" + chefId + "/" + newRecipeKey)] = true;
-        var subject = new Subject();
         this.rootDb.update(dataToSave)
             .then(function (val) {
-            subject.next(val);
-            subject.complete();
+            _this.subject.next(val);
+            _this.subject.complete();
         }, function (err) {
-            subject.error(err);
-            subject.complete();
+            _this.subject.error(err);
+            _this.subject.complete();
         });
-        return subject.asObservable();
+        return this.subject.asObservable();
     };
     RecipeService.prototype.findChefByName = function (chefName) {
         return this.getDb().list('chefs', {
@@ -79,6 +80,18 @@ export var RecipeService = (function () {
             .flatMap(function (res) {
             return Observable.combineLatest(res);
         });
+    };
+    RecipeService.prototype.addChef = function (chef) {
+        var _this = this;
+        this.chefs$.push(chef)
+            .then(function (val) {
+            _this.subject.next(val);
+            _this.subject.complete();
+        }, function (err) {
+            _this.subject.error(err);
+            _this.subject.complete();
+        });
+        return this.subject.asObservable();
     };
     RecipeService = __decorate([
         Injectable(),

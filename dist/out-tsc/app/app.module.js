@@ -23,6 +23,8 @@ import { RecipeFormComponent } from './form/recipe-form/recipe-form.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { ChefDetailsComponent } from './chef-details/chef-details.component';
 import { chefsRouting } from "./routing";
+import { ChefFormComponent } from './form/chef-form/chef-form.component';
+import { NewChefComponent } from './new-chef/new-chef.component';
 export var AppModule = (function () {
     function AppModule() {
     }
@@ -36,6 +38,8 @@ export var AppModule = (function () {
                 RecipeFormComponent,
                 NewRecipeComponent,
                 ChefDetailsComponent,
+                ChefFormComponent,
+                NewChefComponent,
             ],
             imports: [
                 chefsRouting,
@@ -47,6 +51,10 @@ export var AppModule = (function () {
                 HttpModule
             ],
             providers: [RecipeService],
+            entryComponents: [
+                ChefFormComponent,
+                RecipeFormComponent
+            ],
             bootstrap: [AppComponent]
         }), 
         __metadata('design:paramtypes', [])

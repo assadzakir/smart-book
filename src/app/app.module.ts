@@ -11,10 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import {RecipeService} from "./shared/services/smart-service";
 import { ChefListComponent } from './chef-list/chef-list.component';
-import { RecipeFormComponent } from './form/recipe-form/recipe-form.component';
+import {RecipeFormComponent} from './form/recipe-form/recipe-form.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { ChefDetailsComponent } from './chef-details/chef-details.component';
 import {chefsRouting} from "./routing";
+import { ChefFormComponent } from './form/chef-form/chef-form.component';
+import { NewChefComponent } from './new-chef/new-chef.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import {chefsRouting} from "./routing";
     RecipeFormComponent,
     NewRecipeComponent,
     ChefDetailsComponent,
+    ChefFormComponent,
+    NewChefComponent,
   ],
   imports: [
     chefsRouting,
@@ -36,6 +40,10 @@ import {chefsRouting} from "./routing";
     HttpModule
   ],
   providers: [RecipeService],
+  entryComponents: [
+    ChefFormComponent,
+    RecipeFormComponent
+],
   bootstrap: [AppComponent  ]
 })
 export class AppModule { }

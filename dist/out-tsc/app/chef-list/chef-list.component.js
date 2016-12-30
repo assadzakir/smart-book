@@ -12,12 +12,16 @@ import { RecipeService } from "../shared/services/smart-service";
 export var ChefListComponent = (function () {
     function ChefListComponent(recipeServices) {
         this.recipeServices = recipeServices;
+        this.showLoader = true;
     }
     ChefListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.recipeServices.findAllChefs()
             .do(console.log)
-            .subscribe(function (chefs) { return _this.allChefs = chefs; });
+            .subscribe(function (chefs) {
+            _this.allChefs = chefs;
+            _this.showLoader = false;
+        });
     };
     ChefListComponent = __decorate([
         Component({

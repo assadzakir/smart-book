@@ -1,8 +1,12 @@
 <md-card>
   <md-card-header>
-    <md-card-title>{{ (chef$ | async)?.name  }}</md-card-title>
+    <sb-new-recipe [chefID]="(chef$ | async)?.$key" ></sb-new-recipe>
+    <md-card-title></md-card-title>
   </md-card-header>
-  <img md-card-image-md-image style="height: 200px;width: 300px" [src]=' (chef$ | async)?.imageURL'>
+  <md-card-content>
+    <img md-card-image-md-image style="height: 200px;width: 300px" [src]=' (chef$ | async)?.imageURL'>
+    <p>{{ (chef$ | async)?.name  }}</p>
+  </md-card-content>
 </md-card>
 <md-grid-list cols="3" style="background-color: #cfd8dc">
   <md-grid-tile *ngFor="let recipe of recipes">

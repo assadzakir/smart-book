@@ -1,4 +1,4 @@
-<h1 md-dialog-title>Would you like to add Recipe ?</h1>
+<h1 md-dialog-title>Would you like to add Chef ?</h1>
 <md-dialog-content>
   <form autocomplete="off" novalidate [formGroup]="form" >
     <md-input-container dividerColor="accent">
@@ -10,6 +10,6 @@
       <span style="color: red" *ngIf="form.get('imageURL').dirty && form.get('imageURL').hasError('required')">Field required</span>
     </md-input-container>
   </form>
-  <button md-raised-button ng-disabled="myForm.$invalid" [disabled]="!form.valid" color="accent"(click)="dialogRef.close(form)">SAVE</button>
+  <button md-raised-button color="accent"(click)="dialogRef.close(form)" [disabled]="!form.valid">SAVE</button>
   <button md-raised-button color="warn" md-dialog-close>CANCEL</button>
 </md-dialog-content>

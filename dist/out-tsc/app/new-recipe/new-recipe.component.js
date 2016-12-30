@@ -7,29 +7,48 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RecipeService } from "../shared/services/smart-service";
+import { MdDialog } from "@angular/material";
+import { RecipeFormComponent } from "../form/recipe-form/recipe-form.component";
 export var NewRecipeComponent = (function () {
-    function NewRecipeComponent(recipeServices) {
+    function NewRecipeComponent(dialog, recipeServices) {
+        this.dialog = dialog;
         this.recipeServices = recipeServices;
     }
     NewRecipeComponent.prototype.ngOnInit = function () {
     };
-    NewRecipeComponent.prototype.save = function (form) {
-        this.recipeServices.createNewRecipe('2', form.value)
-            .subscribe(function () {
-            alert("New Lesson has been created successfully");
-            form.reset();
-        }, function (err) {
-            console.error("save() new lesson", err);
+    NewRecipeComponent.prototype.openDialog = function () {
+        var _this = this;
+        this.dialogRef = this.dialog.open(RecipeFormComponent, {
+            disableClose: false
+        });
+        this.dialogRef.afterClosed().subscribe(function (result) {
+            if (result)
+                _this.save(result);
+            _this.dialogRef = null;
         });
     };
+    NewRecipeComponent.prototype.save = function (form) {
+        debugger;
+        this.recipeServices.createNewRecipe(this.chefID, form.value)
+            .subscribe(function () {
+            alert("New Recipe has been created successfully");
+            form.reset();
+        }, function (err) {
+            console.error("save() new Recipe", err);
+        });
+    };
+    __decorate([
+        Input(), 
+        __metadata('design:type', Object)
+    ], NewRecipeComponent.prototype, "chefID", void 0);
     NewRecipeComponent = __decorate([
         Component({
             selector: 'sb-new-recipe',
             templateUrl: './new-recipe.component.html'
         }), 
-        __metadata('design:paramtypes', [RecipeService])
+        __metadata('design:paramtypes', [MdDialog, RecipeService])
     ], NewRecipeComponent);
     return NewRecipeComponent;
 }());

@@ -8,6 +8,7 @@ export class RecipeService {
     recipes$: FirebaseListObservable<any>;
     chefs$: FirebaseListObservable<any>;
     db: FirebaseDatabase;
+    subject = new Subject();
     rootDb: any;
 
     constructor(private af: AngularFire, @Inject(FirebaseRef) fb) {
@@ -40,16 +41,15 @@ export class RecipeService {
         dataToSave[`recipesPerChef/${chefId}/${newRecipeKey}`] = true;
 
 
-        const subject = new Subject();
         this.rootDb.update(dataToSave)
             .then((val) => {
-                subject.next(val);
-                subject.complete();
+                this.subject.next(val);
+                this.subject.complete();
             }, (err) => {
-                subject.error(err);
-                subject.complete();
+                this.subject.error(err);
+                this.subject.complete();
             });
-        return subject.asObservable();
+        return this.subject.asObservable();
     }
 
     findChefByName(chefName): Observable<any> {
@@ -83,6 +83,18 @@ export class RecipeService {
             .flatMap((res) => {
                 return Observable.combineLatest(res);
             });
+    }
+
+    addChef(chef): Observable<any> {
+        this.chefs$.push(chef)
+            .then((val) => {
+                this.subject.next(val);
+                this.subject.complete();
+            }, (err) => {
+                this.subject.error(err);
+                this.subject.complete();
+            });
+        return this.subject.asObservable();
     }
 
 

@@ -9,13 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms";
+import { MdDialogRef } from "@angular/material";
 export var RecipeFormComponent = (function () {
     // @Input() initialData;
-    function RecipeFormComponent(fb) {
+    function RecipeFormComponent(dialogRef, fb) {
+        this.dialogRef = dialogRef;
         this.fb = fb;
         this.form = fb.group({
             name: ['', Validators.required],
-            description: ['', Validators.required],
+            imageURL: ['', Validators.required],
         });
     }
     // ngOnChanges(changes: SimpleChanges): void {
@@ -50,7 +52,7 @@ export var RecipeFormComponent = (function () {
             selector: 'sb-recipe-form',
             templateUrl: './recipe-form.component.html'
         }), 
-        __metadata('design:paramtypes', [FormBuilder])
+        __metadata('design:paramtypes', [MdDialogRef, FormBuilder])
     ], RecipeFormComponent);
     return RecipeFormComponent;
 }());
