@@ -8,16 +8,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from "@angular/forms";
 import { MdDialogRef } from "@angular/material";
+import { valideUrl } from "../../shared/validate-url";
 export var RecipeFormComponent = (function () {
     // @Input() initialData;
     function RecipeFormComponent(dialogRef, fb) {
         this.dialogRef = dialogRef;
         this.fb = fb;
+        var ingredients = new FormArray([]);
+        var steps = new FormArray([]);
         this.form = fb.group({
             name: ['', Validators.required],
             imageURL: ['', Validators.required],
+            ingredients: ingredients,
+            steps: steps,
+            videoUrl: ['', [Validators.required, valideUrl]]
         });
     }
     // ngOnChanges(changes: SimpleChanges): void {
@@ -28,6 +34,24 @@ export var RecipeFormComponent = (function () {
     //     }
     //   }
     // }
+    RecipeFormComponent.prototype.onAddIngredients = function (name, quantity, type) {
+        this.form.controls['ingredients'].push(new FormGroup({
+            name: new FormControl(name, Validators.required),
+            quantity: new FormControl(quantity, Validators.required),
+            type: new FormControl(type, Validators.required)
+        }));
+    };
+    RecipeFormComponent.prototype.onAddSteps = function (step) {
+        this.form.controls['steps'].push(new FormGroup({
+            stepNo: new FormControl(step, Validators.required)
+        }));
+    };
+    RecipeFormComponent.prototype.removeIngredient = function (index) {
+        this.form.controls['ingredients'].removeAt(index);
+    };
+    RecipeFormComponent.prototype.removeStep = function (index) {
+        this.form.controls['steps'].removeAt(index);
+    };
     RecipeFormComponent.prototype.ngOnInit = function () {
     };
     RecipeFormComponent.prototype.reset = function () {

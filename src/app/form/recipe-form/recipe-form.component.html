@@ -1,14 +1,89 @@
 <h1 md-dialog-title>Would you like to add Recipe ?</h1>
 <md-dialog-content>
   <form autocomplete="off" novalidate [formGroup]="form" >
-    <md-input-container dividerColor="accent">
+    <md-input-container style="width: 100%" >
       <input md-input placeholder="Name" formControlName="name" value="Crock Pot Roast">
       <span style="color: red" *ngIf="form.get('name').dirty && form.get('name').hasError('required')">Field required</span>
     </md-input-container>
-    <md-input-container dividerColor="accent">
-      <input md-input placeholder="imageURL" formControlName="imageURL" value="https://thumbs.dreamstime.com/z/fresh-suop-28535728.jpg">
+    <md-input-container style="width: 100%" >
+      <input  md-input placeholder="imageURL" formControlName="imageURL" value="https://thumbs.dreamstime.com/z/fresh-suop-28535728.jpg">
       <span style="color: red" *ngIf="form.get('imageURL').dirty && form.get('imageURL').hasError('required')">Field required</span>
     </md-input-container>
+    <md-input-container style="width: 100%" >
+      <input  md-input placeholder="videoUrl" formControlName="videoUrl" value="videoUrl">
+      <span style="color: red" *ngIf="form.get('videoUrl').dirty && form.get('videoUrl').hasError('required')">Field required</span>
+      <span style="color: red" *ngIf="form.get('videoUrl').dirty && form.get('videoUrl').hasError('url')">{{form.get('videoUrl').errors?.url.message}}</span>
+    </md-input-container>
+    <table formArrayName="steps" style="width: 100%" cellspacing="0">
+      <tr>
+        <td>
+          <md-input-container style="width: 100%" >
+            <input  md-input placeholder="Steps" #step>
+          </md-input-container>
+        </td>
+        <td>
+          <button md-mini-fab style="float: right" (click)="onAddSteps(step.value)">
+            <md-icon class="md-24">add</md-icon>
+          </button>
+        </td>
+      </tr>
+      <tr *ngFor="let step of form.controls['steps'].controls; let i = index ">
+        <td>
+          <md-input-container  formGroupName="{{i}}"   style="width: 100%" >
+            <input  md-input formControlName="stepNo" >
+          </md-input-container>
+        </td>
+        <td>
+          <button md-mini-fab style="float: right" (click)="removeStep(i)">
+            <md-icon class="md-24" >remove</md-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+    <table style="width: 100%" cellspacing="0" formArrayName="ingredients">
+      <tr>
+      <td><md-input-container width="100%">
+        <input  md-input placeholder="Name"  value="" #name>
+      </md-input-container></td>
+      <td><md-input-container width="100%">
+        <input  md-input placeholder="quantity" value="" #quantity>
+      </md-input-container></td>
+      <td><md-input-container width="100%">
+        <input  md-input placeholder="type" value="" #type>
+      </md-input-container></td>
+      <td>
+        <button md-mini-fab style="float: right" (click)="onAddIngredients(name.value, quantity.value,type.value)">
+          <md-icon class="md-24" >add</md-icon>
+        </button>
+      </td>
+      </tr>
+      <tr formGroupName="{{i}}"  *ngFor="let ingredient of form.controls['ingredients'].controls; let i = index ">
+        <td>
+          <md-input-container width="100%">
+          <input  md-input type="text" formControlName="name">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container width="100%">
+          <input  md-input type="text" formControlName="quantity">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container width="100%">
+          <input  md-input type="text" formControlName="type">
+          </md-input-container>
+        </td>
+        <td>
+          <button md-mini-fab style="float: right"  (click)="removeIngredient(i)">
+            <md-icon class="md-24">remove</md-icon>
+          </button>
+        </td>
+
+        <!--<span style="color: red" *ngIf="form.get('ingredients.name').dirty && form.get('ingredients.name').hasError('required')">Field required</span>-->
+        <!--<span style="color: red" *ngIf="form.get('ingredients.quantity').dirty && form.get('ingredients.quantity').hasError('required')">Field required</span>-->
+        <!--<span style="color: red" *ngIf="form.get('ingredients.type').dirty && form.get('ingredients.type').hasError('required')">Field required</span>-->
+      </tr>
+    </table>
   </form>
   <button md-raised-button ng-disabled="myForm.$invalid" [disabled]="!form.valid" color="accent"(click)="dialogRef.close(form)">SAVE</button>
   <button md-raised-button color="warn" md-dialog-close>CANCEL</button>
