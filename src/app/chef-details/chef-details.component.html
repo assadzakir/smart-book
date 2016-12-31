@@ -1,87 +1,93 @@
-<md-card>
-  <md-card-header>
-    <sb-new-recipe [chefID]="(chef$ | async)?.$key" ></sb-new-recipe>
-    <md-card-title></md-card-title>
-  </md-card-header>
-  <md-card-content>
-    <img md-card-image-md-image style="height: 200px;width: 300px" [src]=' (chef$ | async)?.imageURL'>
-    <p><span> <h3>{{ (chef$ | async)?.name  }} </h3></span></p>
-  </md-card-content>
-</md-card>
-<md-card>
-  <!--<md-card-header>-->
-    <!--<md-card-title></md-card-title>-->
-  <!--</md-card-header>-->
-  <md-card-content>
-    <md-tab-group style="width: 100%">
-      <md-tab>
-        <template md-tab-label color="warn">
-          <b>Recent</b>
-        </template>
-        <md-grid-list cols="3" style="background-color: #f44336">
-          <md-grid-tile *ngFor="let recipe of recipes">
-            <md-card >
-              <md-card-header>
-                <img md-card-avatar [src]='recipe.imageURL'>
-                <md-card-title> {{recipe.name}}</md-card-title>
-                <md-card-subtitle>Header subtitle</md-card-subtitle>
-              </md-card-header>
-              <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
-              <!--<md-card-content *ngFor="let item of recipe.steps">-->
-              <!--<p>{{item}}</p>-->
-              <!--</md-card-content>-->
-              <hr>
-            </md-card>
-          </md-grid-tile>
+<div class="flex-container" fxLayout="row" fxLayoutAlign="space-around center">
+  <div class="flex-item" fxFlex="20%">
+    <sb-new-recipe  [chefID]="(chef$ | async)?.$key" ></sb-new-recipe>
+    <md-card>
+      <md-card-header>
+        <md-card-title></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <img md-card-image [src]=' (chef$ | async)?.imageURL'>
+        <p><span> <h3>{{ (chef$ | async)?.name  }} </h3></span></p>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div class="flex-item" fxFlex="70%">
+    <md-card>
+      <md-card-header>
+      <md-card-title></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <md-tab-group >
+          <md-tab>
+            <template md-tab-label color="warn">
+              <b>Recent</b>
+            </template>
+            <md-grid-list cols="3" style="background-color: #f44336">
+              <md-grid-tile *ngFor="let recipe of recipes">
+                <md-card >
+                  <md-card-header>
+                    <img md-card-avatar [src]='recipe.imageURL'>
+                    <md-card-title> {{recipe.name}}</md-card-title>
+                    <md-card-subtitle>Header subtitle</md-card-subtitle>
+                  </md-card-header>
+                  <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
+                  <!--<md-card-content *ngFor="let item of recipe.steps">-->
+                  <!--<p>{{item}}</p>-->
+                  <!--</md-card-content>-->
+                  <hr>
+                </md-card>
+              </md-grid-tile>
 
-        </md-grid-list>
-      </md-tab>
-      <md-tab>
-        <template md-tab-label>
-          <b>Popular</b>
-        </template>
-        <md-grid-list cols="3" style="background-color: #f44336">
-          <md-grid-tile *ngFor="let recipe of recipes">
-            <md-card >
-              <md-card-header>
-                <img md-card-avatar [src]='recipe.imageURL'>
-                <md-card-title> {{recipe.name}}</md-card-title>
-                <md-card-subtitle>Header subtitle</md-card-subtitle>
-              </md-card-header>
-              <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
-              <!--<md-card-content *ngFor="let item of recipe.steps">-->
-              <!--<p>{{item}}</p>-->
-              <!--</md-card-content>-->
-              <hr>
-            </md-card>
-          </md-grid-tile>
+            </md-grid-list>
+          </md-tab>
+          <md-tab>
+            <template md-tab-label>
+              <b>Popular</b>
+            </template>
+            <md-grid-list cols="3" style="background-color: #f44336">
+              <md-grid-tile *ngFor="let recipe of recipes">
+                <md-card >
+                  <md-card-header>
+                    <img md-card-avatar [src]='recipe.imageURL'>
+                    <md-card-title> {{recipe.name}}</md-card-title>
+                    <md-card-subtitle>Header subtitle</md-card-subtitle>
+                  </md-card-header>
+                  <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
+                  <!--<md-card-content *ngFor="let item of recipe.steps">-->
+                  <!--<p>{{item}}</p>-->
+                  <!--</md-card-content>-->
+                  <hr>
+                </md-card>
+              </md-grid-tile>
 
-        </md-grid-list>
-      </md-tab>
-      <md-tab>
-        <template md-tab-label>
-          <b>All</b>
-        </template>
-        <md-grid-list cols="3" style="background-color: #f44336">
-          <md-grid-tile *ngFor="let recipe of recipes">
-            <md-card >
-              <md-card-header>
-                <img md-card-avatar [src]='recipe.imageURL'>
-                <md-card-title> {{recipe.name}}</md-card-title>
-                <md-card-subtitle>Header subtitle</md-card-subtitle>
-              </md-card-header>
-              <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
-              <!--<md-card-content *ngFor="let item of recipe.steps">-->
-              <!--<p>{{item}}</p>-->
-              <!--</md-card-content>-->
-              <hr>
-            </md-card>
-          </md-grid-tile>
+            </md-grid-list>
+          </md-tab>
+          <md-tab>
+            <template md-tab-label>
+              <b>All</b>
+            </template>
+            <md-grid-list cols="3" style="background-color: #f44336">
+              <md-grid-tile *ngFor="let recipe of recipes">
+                <md-card >
+                  <md-card-header>
+                    <img md-card-avatar [src]='recipe.imageURL'>
+                    <md-card-title> {{recipe.name}}</md-card-title>
+                    <md-card-subtitle>Header subtitle</md-card-subtitle>
+                  </md-card-header>
+                  <img md-card-image-md-image style="height: 177px;width: 266px" [src]='recipe.imageURL'>
+                  <!--<md-card-content *ngFor="let item of recipe.steps">-->
+                  <!--<p>{{item}}</p>-->
+                  <!--</md-card-content>-->
+                  <hr>
+                </md-card>
+              </md-grid-tile>
 
-        </md-grid-list>
-      </md-tab>
-    </md-tab-group>
-  </md-card-content>
-</md-card>
+            </md-grid-list>
+          </md-tab>
+        </md-tab-group>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
 
 

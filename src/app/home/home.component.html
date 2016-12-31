@@ -1,22 +1,31 @@
-    <md-toolbar color="warn">
-    <span routerLink="/chef">SMART BOOK</span>
-    <span class="example-fill-remaining-space"></span>
-    <span routerLink="/chef">Top Chef</span>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    <span routerLink="/recipes">Top Recipes</span>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    <span>Most Viewed</span>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    <span>Recent</span>
-        &nbsp; &nbsp; &nbsp;
-    <span> <sb-new-chef></sb-new-chef></span>
-</md-toolbar>
-    <div class="main-content">
-        <router-outlet class="main"></router-outlet>
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayout.xs="column"
+         fxLayoutAlign="center center"
+         fxLayoutAlign.xs="center center">
+        <!--<div class="flex-item" fxFlex="20%" fxFlex.xs="40%"> sdfasdfasdf </div>-->
+        <!--<div class="flex-item" fxFlex>    asdfasdfasd    </div>-->
+        <!--<div class="flex-item" fxFlex="25px">asdfasdfasdf </div>-->
+            <div class="flex-item" fxFlex="100%" fxFlex.xs="50%">
+                <md-toolbar color="warn">
+                    <span routerLink="/chef">SMART BOOK</span>
+                    <span class="example-fill-remaining-space"></span>
+                    <span routerLink="/chef">Top Chef</span>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <span routerLink="/recipes">Top Recipes</span>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <span>Most Viewed</span>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <span>Recent</span>
+                    &nbsp; &nbsp; &nbsp;
+                    <span> <sb-new-chef></sb-new-chef></span>
+                </md-toolbar>
+            <router-outlet class="main"></router-outlet>
+        </div>
     </div>

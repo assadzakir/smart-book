@@ -25,6 +25,7 @@ import { ChefDetailsComponent } from './chef-details/chef-details.component';
 import { chefsRouting } from "./routing";
 import { ChefFormComponent } from './form/chef-form/chef-form.component';
 import { NewChefComponent } from './new-chef/new-chef.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 export var AppModule = (function () {
     function AppModule() {
     }
@@ -45,6 +46,7 @@ export var AppModule = (function () {
                 chefsRouting,
                 AngularFireModule.initializeApp(firebaseConfig),
                 MaterialModule.forRoot(),
+                FlexLayoutModule.forRoot(),
                 ReactiveFormsModule,
                 BrowserModule,
                 FormsModule,

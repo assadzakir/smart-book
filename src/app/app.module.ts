@@ -17,6 +17,7 @@ import { ChefDetailsComponent } from './chef-details/chef-details.component';
 import {chefsRouting} from "./routing";
 import { ChefFormComponent } from './form/chef-form/chef-form.component';
 import { NewChefComponent } from './new-chef/new-chef.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NewChefComponent } from './new-chef/new-chef.component';
     chefsRouting,
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot(),
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
