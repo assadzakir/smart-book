@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
-import {Recipe} from "../shared/model/recipe";
-import {RecipeService} from "../shared/services/smart-service";
+import {Recipe} from "../../shared/model/recipe";
+import {RecipeService} from "../../shared/services/smart-service";
 
 @Component({
     selector: 'sb-chef-details',

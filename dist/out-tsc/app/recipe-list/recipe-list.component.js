@@ -9,25 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { RecipeService } from "../shared/services/smart-service";
+import { Store } from "@ngrx/store";
 export var RecipeListComponent = (function () {
-    function RecipeListComponent(recipeServices) {
+    function RecipeListComponent(recipeServices, store) {
         this.recipeServices = recipeServices;
+        this.store = store;
         this.showLoader = true;
     }
     RecipeListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.recipeServices.findAllRecipes()
-            .subscribe(function (recipes) {
-            _this.allRecipes = recipes;
-            _this.showLoader = false;
-        });
+        this.allRecipes = this.store.select(function (state) { return state.recipes; });
+        console.log(this.allRecipes);
+        if (this.allRecipes)
+            this.showLoader = false;
+        // this.recipeServices.findAllRecipes()
+        //     .subscribe(recipes => {
+        //         this.allRecipes = recipes;
+        //         this.showLoader = false;
+        //     })
     };
     RecipeListComponent = __decorate([
         Component({
             selector: 'sb-recipe-list',
             templateUrl: './recipe-list.component.html'
         }), 
-        __metadata('design:paramtypes', [RecipeService])
+        __metadata('design:paramtypes', [RecipeService, Store])
     ], RecipeListComponent);
     return RecipeListComponent;
 }());

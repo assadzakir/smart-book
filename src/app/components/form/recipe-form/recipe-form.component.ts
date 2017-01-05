@@ -1,8 +1,8 @@
 import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormArray, FormControl} from "@angular/forms";
 import {MdDialogRef} from "@angular/material"
-import {valideUrl} from "../../shared/validate-url";
-import {Ingredients} from "../../shared/model/ingredients";
+import {valideUrl} from "../../../shared/validate-url";
+import {Ingredients} from "../../../shared/model/ingredients";
 
 @Component({
     selector: 'sb-recipe-form',
