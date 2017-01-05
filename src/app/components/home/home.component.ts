@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RecipeService} from "../shared/services/smart-service";
-import {Recipe} from "../shared/model/recipe";
+import {RecipeService} from "../../shared/services/smart-service";
+import {Recipe} from "../../shared/model/recipe";
 
 
 @Component({

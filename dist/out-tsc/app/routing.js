@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
-import { ChefListComponent } from './chef-list/chef-list.component';
-import { ChefDetailsComponent } from './chef-details/chef-details.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { ChefListComponent } from './container/chef-list/chef-list.component';
+import { ChefDetailsComponent } from './container/chef-details/chef-details.component';
+import { RecipeListComponent } from './container/recipe-list/recipe-list.component';
 var indexRoute = { path: '', redirectTo: 'chef', pathMatch: 'full' };
 export var chefsRoutes = [
     { path: 'chef', component: ChefListComponent },

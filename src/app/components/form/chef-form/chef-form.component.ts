@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MdDialogRef} from "@angular/material"
-import {valideUrl} from "../../shared/validate-url";
+import {valideUrl} from "../../../shared/validate-url";
 
 @Component({
     selector: 'sb-chef-form',

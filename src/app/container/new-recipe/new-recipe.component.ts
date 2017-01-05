@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {RecipeService} from "../shared/services/smart-service";
+import {RecipeService} from "../../shared/services/smart-service";
 import {MdDialogRef, MdDialog} from "@angular/material"
-import {RecipeFormComponent} from "../form/recipe-form/recipe-form.component";
+import {RecipeFormComponent} from "../../components/form/recipe-form/recipe-form.component";
 
 
 @Component({

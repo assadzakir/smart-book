@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
-import {RecipeService} from "../shared/services/smart-service";
-import {Chef} from "../shared/model/chef";
+import {RecipeService} from "../../shared/services/smart-service";
+import {Chef} from "../../shared/model/chef";
 
 @Component({
     selector: 'sb-chef-list',
