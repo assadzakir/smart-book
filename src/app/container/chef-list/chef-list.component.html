@@ -1,6 +1,6 @@
 <md-progress-bar *ngIf="showLoader" color="primary" mode="query"></md-progress-bar>
 <md-grid-list cols="4 " style="background-color: #cfd8dc">
-  <md-grid-tile *ngFor="let chef of allChefs"  [routerLink]="chef.name">
+  <md-grid-tile *ngFor="let chef of allChefs | async"  [routerLink]="chef.name">
     <md-card >
       <md-card-header>
         <img md-card-avatar [src]='chef.imageURL'>

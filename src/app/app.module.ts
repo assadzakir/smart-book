@@ -21,8 +21,10 @@ import {StoreModule} from "@ngrx/store";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {EffectsModule} from "@ngrx/effects";
 import {RecipeActions} from './actions/recipe-action';
-import {RecipeReducer} from './reducer/recipe-reducer';
+import {ChefActions} from './actions/chef-action';
 import {RecipeEffects} from './effects/recipe-effects';
+import {ChefEffects} from './effects/chef-effects';
+import {Reducer} from './reducer/index';
 
 @NgModule({
   declarations: [
@@ -42,14 +44,15 @@ import {RecipeEffects} from './effects/recipe-effects';
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
     EffectsModule.runAfterBootstrap(RecipeEffects),
-    StoreModule.provideStore({recipes:RecipeReducer}),
+    EffectsModule.runAfterBootstrap(ChefEffects),
+    StoreModule.provideStore({Reducer:Reducer}),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [RecipeService,RecipeActions],
+  providers: [RecipeService,RecipeActions,ChefActions],
   entryComponents: [
     ChefFormComponent,
     RecipeFormComponent
