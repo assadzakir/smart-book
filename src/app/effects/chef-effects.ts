@@ -10,6 +10,7 @@ import 'rxjs/add/operator/mergeMap'
 import {RecipeService} from '../shared/services/smart-service';
 import {Recipe} from '../shared/model/recipe';
 import {ChefActions} from '../actions/chef-action';
+import {Action} from "@ngrx/store";
 
 @Injectable()
 export class ChefEffects {
@@ -22,5 +23,15 @@ export class ChefEffects {
 
     @Effect() allChefs$ = this.fb.findAllChefs()
         .map(chef => { return this.chefActions.loadChefSuccess(chef)});
+
+    @Effect()
+    addChef$: Observable<Action> = this.actions$
+        .ofType(ChefActions.ADD_CHEF)
+        .mergeMap((action) => {
+        debugger;
+        let data = this.fb.addChef(action.payload)
+    return data
+    }
+        )
 
 }

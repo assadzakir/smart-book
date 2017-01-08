@@ -93,6 +93,9 @@ export var RecipeService = (function () {
         });
         return this.subject.asObservable();
     };
+    RecipeService.prototype.findRecipeById = function (recipeId) {
+        return this.af.database.object('/recipes/' + recipeId);
+    };
     RecipeService = __decorate([
         Injectable(),
         __param(1, Inject(FirebaseRef)), 

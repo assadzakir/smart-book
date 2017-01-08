@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ChefFormComponent} from "../../components/form/chef-form/chef-form.component";
 import {RecipeService} from "../../shared/services/smart-service";
 import {MdDialog, MdDialogRef} from "@angular/material";
+import {ChefActions} from "../../actions/chef-action";
+import {Store} from "@ngrx/store";
+import {AppState} from "../../shared/services/app-state";
 
 @Component({
     selector: 'sb-new-chef',
@@ -9,7 +12,7 @@ import {MdDialog, MdDialogRef} from "@angular/material";
 })
 export class NewChefComponent implements OnInit {
 
-    constructor(public dialog: MdDialog, private recipeServices: RecipeService) {
+    constructor(public store:Store<AppState>,public dialog: MdDialog, private recipeServices: RecipeService,public chefActions:ChefActions) {
     }
 
     ngOnInit() {
@@ -30,6 +33,9 @@ export class NewChefComponent implements OnInit {
     }
 
     saveChef(form) {
+        // this.store.dispatch(
+        //     this.chefActions.addChef(form.value)
+        // );
         this.recipeServices.addChef(form.value)
             .subscribe(() => {
                 alert("New Chef has been created successfully");

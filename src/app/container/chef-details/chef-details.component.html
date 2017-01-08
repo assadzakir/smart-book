@@ -1,7 +1,7 @@
-<div class="flex-container" fxLayout="row" fxLayoutAlign="space-around center">
+<div class="flex-container" fxLayout="row" fxLayoutAlign="space-around stretch" style="background-color: #cfd8dc">
   <div class="flex-item" fxFlex="20%">
-    <sb-new-recipe  [chefID]="(chef$ | async)?.$key" ></sb-new-recipe>
     <md-card>
+      <sb-new-recipe  [chefID]="(chef$ | async)?.$key" ></sb-new-recipe>
       <md-card-header>
         <md-card-title></md-card-title>
       </md-card-header>
@@ -12,6 +12,7 @@
     </md-card>
   </div>
   <div class="flex-item" fxFlex="70%">
+    <div></div>
     <md-card>
       <md-card-header>
       <md-card-title></md-card-title>
@@ -23,7 +24,7 @@
               <b>Recent</b>
             </template>
             <md-grid-list cols="3" style="background-color: #f44336">
-              <md-grid-tile *ngFor="let recipe of recipes">
+              <md-grid-tile *ngFor="let recipe of recipes" [routerLink]="recipe.$key">
                 <md-card >
                   <md-card-header>
                     <img md-card-avatar [src]='recipe.imageURL'>
@@ -45,7 +46,7 @@
               <b>Popular</b>
             </template>
             <md-grid-list cols="3" style="background-color: #f44336">
-              <md-grid-tile *ngFor="let recipe of recipes">
+              <md-grid-tile *ngFor="let recipe of recipes" [routerLink]="recipe.$key">
                 <md-card >
                   <md-card-header>
                     <img md-card-avatar [src]='recipe.imageURL'>
@@ -67,7 +68,7 @@
               <b>All</b>
             </template>
             <md-grid-list cols="3" style="background-color: #f44336">
-              <md-grid-tile *ngFor="let recipe of recipes">
+              <md-grid-tile *ngFor="let recipe of recipes" [routerLink]="recipe.$key">
                 <md-card >
                   <md-card-header>
                     <img md-card-avatar [src]='recipe.imageURL'>

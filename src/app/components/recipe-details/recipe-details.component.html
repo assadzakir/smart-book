@@ -1,0 +1,42 @@
+<div class="flex-container" fxLayout="row" fxLayoutAlign="space-around center" style="background-color: #cfd8dc">
+  <div class="flex-item" fxFlex="60%">
+    <md-card>
+      <md-card-header>
+        <md-card-title></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <img md-card-image [src]='(recipe$ | async)?.imageURL'>
+        <p><span> <h3>{{ (recipe$ | async)?.name  }} </h3></span></p>
+        <md-tab-group >
+          <md-tab>
+            <template md-tab-label color="warn">
+              <b>Steps</b>
+            </template>
+            <md-grid-list cols="3" style="background-color: #f44336">
+              <md-grid-tile *ngFor="let step of (recipe$ | async)?.steps">
+                <md-card >
+                  {{step.stepNo}}
+                </md-card>
+              </md-grid-tile>
+
+            </md-grid-list>
+          </md-tab>
+          <md-tab>
+            <template md-tab-label color="warn">
+              <b>Ingredients</b>
+            </template>
+            <md-grid-list cols="3" style="background-color: #f44336">
+              <md-grid-tile *ngFor="let ingred of (recipe$ | async)?.ingredients">
+                <md-card >
+                 <span> {{ingred.name}}</span><span>{{ingred.quantity}}</span>
+                </md-card>
+              </md-grid-tile>
+
+            </md-grid-list>
+          </md-tab>
+        </md-tab-group>
+      </md-card-content>
+
+    </md-card>
+  </div>
+</div>

@@ -34,6 +34,7 @@ import { ChefActions } from './actions/chef-action';
 import { RecipeEffects } from './effects/recipe-effects';
 import { ChefEffects } from './effects/chef-effects';
 import { Reducer } from './reducer/index';
+import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 export var AppModule = (function () {
     function AppModule() {
     }
@@ -49,6 +50,7 @@ export var AppModule = (function () {
                 ChefDetailsComponent,
                 ChefFormComponent,
                 NewChefComponent,
+                RecipeDetailsComponent,
             ],
             imports: [
                 chefsRouting,

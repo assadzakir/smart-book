@@ -97,5 +97,9 @@ export class RecipeService {
         return this.subject.asObservable();
     }
 
+    findRecipeById(recipeId): Observable<Recipe> {
+        return  this.af.database.object('/recipes/'+recipeId);
+    }
+
 
 }
