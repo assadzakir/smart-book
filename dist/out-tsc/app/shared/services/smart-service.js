@@ -31,8 +31,9 @@ export var RecipeService = (function () {
     RecipeService.prototype.findAllChefs = function () {
         return this.chefs$;
     };
-    RecipeService.prototype.createNewRecipe = function (chefId, recipe) {
+    RecipeService.prototype.createNewRecipe = function (recipe) {
         var _this = this;
+        var chefId = recipe.chefID;
         var recipeToSave = Object.assign({}, recipe, { chefId: chefId });
         // Generate a new key under 'recipes' collection, db won't change currently
         var newRecipeKey = this.rootDb.child('recipes').push().key;

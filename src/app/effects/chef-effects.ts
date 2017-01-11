@@ -26,5 +26,15 @@ export class ChefEffects {
                 .catch(error => of(new chef_collection.LoadFailAction(error)))
         );
 
+    @Effect()
+    addChef$: Observable<Action> = this.actions$
+        .ofType(chef_collection.ActionTypes.ADD_CHEF)
+        .map((action: chef_collection.AddChefAction) => action.payload)
+        .mergeMap(chef =>
+            this.fb.addChef(chef)
+                .map(() => new chef_collection.AddChefSuccessAction(chef))
+                .catch(() => of(new chef_collection.AddChefFailAction(chef)))
+        );
+
 
 }

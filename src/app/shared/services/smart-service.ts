@@ -30,7 +30,9 @@ export class RecipeService {
         return this.chefs$;
     }
 
-    createNewRecipe(chefId: string, recipe: Recipe): Observable<any> {
+    createNewRecipe(recipe: Recipe): Observable<any> {
+        let chefId = recipe.chefID
+
         const recipeToSave = Object.assign({}, recipe, {chefId});
 
         // Generate a new key under 'recipes' collection, db won't change currently

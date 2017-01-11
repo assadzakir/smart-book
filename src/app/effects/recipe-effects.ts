@@ -26,4 +26,14 @@ export class RecipeEffects {
                 .catch(error => of(new recipe_collection.LoadFailAction(error)))
         );
 
+    @Effect()
+    addRecipe$: Observable<Action> = this.actions$
+        .ofType(recipe_collection.ActionTypes.ADD_RECIPE)
+        .map((action: recipe_collection.AddRecipeAction) => action.payload)
+        .mergeMap(recipe =>
+            this.fb.createNewRecipe(recipe)
+                .map(() => new recipe_collection.AddRecipeSuccessAction(recipe))
+                .catch(() => of(new recipe_collection.AddRecipeFailAction(recipe)))
+        );
+
 }

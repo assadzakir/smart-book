@@ -11,6 +11,7 @@ export interface Recipe {
     ingredients: Ingredients[];
     originalURL:string,
     steps:Array<any>,
-    timers:Array<any>
+    timers:Array<any>,
+    chefID?:string,
     $key?: string;
 }

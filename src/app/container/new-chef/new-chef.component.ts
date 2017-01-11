@@ -4,6 +4,7 @@ import {RecipeService} from "../../shared/services/smart-service";
 import {MdDialog, MdDialogRef} from "@angular/material";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../shared/services/app-state";
+import * as chef_collection from '../../actions/chef-actions';
 
 @Component({
     selector: 'sb-new-chef',
@@ -32,16 +33,14 @@ export class NewChefComponent implements OnInit {
     }
 
     saveChef(form) {
-        // this.store.dispatch(
-        //     this.chefActions.addChef(form.value)
-        // );
-        this.recipeServices.addChef(form.value)
-            .subscribe(() => {
-                alert("New Chef has been created successfully");
-                form.reset();
-            }, (err) => {
-                console.error("save() new Chef", err);
-            })
+        this.store.dispatch(new chef_collection.AddChefAction(form.value));
+        // this.recipeServices.addChef(form.value)
+        //     .subscribe(() => {
+        //         alert("New Chef has been created successfully");
+        //         form.reset();
+        //     }, (err) => {
+        //         console.error("save() new Chef", err);
+        //     })
     }
 
 }
