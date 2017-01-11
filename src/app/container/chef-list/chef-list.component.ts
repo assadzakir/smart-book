@@ -5,7 +5,6 @@ import {ChefI} from "../../shared/model/chef";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {AppState} from "../../shared/services/app-state";
-import {ChefActions} from "../../actions/chef-action";
 
 @Component({
     selector: 'sb-chef-list',
@@ -20,9 +19,8 @@ export class ChefListComponent implements OnInit {
     }
 
     ngOnInit() {
-            this.allChefs = this.store.select(state => state['Reducer'].chefs);
-        console.log(this.allChefs);
-        if(this.allChefs)
+            this.allChefs = this.store.select(state => {return state.chefs});
+            if(this.allChefs)
             this.showLoader = false;
     }
 

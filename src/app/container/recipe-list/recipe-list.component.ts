@@ -20,15 +20,9 @@ export class RecipeListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.allRecipes = this.store.select(state => state['Reducer'].recipes);
-        console.log(this.allRecipes);
+        this.allRecipes = this.store.select(state => {return state.recipes});
         if(this.allRecipes)
             this.showLoader = false;
-        // this.recipeServices.findAllRecipes()
-        //     .subscribe(recipes => {
-        //         this.allRecipes = recipes;
-        //         this.showLoader = false;
-        //     })
     }
 
 

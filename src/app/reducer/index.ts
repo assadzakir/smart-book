@@ -1,9 +1,10 @@
 /**
  * Created by assad on 1/7/17.
  */
-import { combineReducers } from '@ngrx/store';
-import { RecipeReducer } from './recipe-reducer';
-import { ChefReducer } from './chef-reducer';
+import {combineReducers, ActionReducer} from '@ngrx/store';
+import {RecipeReducer} from './recipe-reducer';
+import {ChefReducer} from './chef-reducer';
+import {AppState} from "../shared/services/app-state";
 
 
 const reducers = {
@@ -11,4 +12,8 @@ const reducers = {
     chefs: ChefReducer
 };
 
-export const Reducer  = combineReducers(reducers);
+const productionReducer: ActionReducer<AppState> = combineReducers(reducers);
+
+export function reducer(state: any, action: any) {
+    return productionReducer(state, action);
+}

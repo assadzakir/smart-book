@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ChefFormComponent} from "../../components/form/chef-form/chef-form.component";
 import {RecipeService} from "../../shared/services/smart-service";
 import {MdDialog, MdDialogRef} from "@angular/material";
-import {ChefActions} from "../../actions/chef-action";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../shared/services/app-state";
 
@@ -12,7 +11,7 @@ import {AppState} from "../../shared/services/app-state";
 })
 export class NewChefComponent implements OnInit {
 
-    constructor(public store:Store<AppState>,public dialog: MdDialog, private recipeServices: RecipeService,public chefActions:ChefActions) {
+    constructor(public store:Store<AppState>,public dialog: MdDialog, private recipeServices: RecipeService) {
     }
 
     ngOnInit() {

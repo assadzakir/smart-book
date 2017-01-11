@@ -29,11 +29,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
-import { RecipeActions } from './actions/recipe-action';
-import { ChefActions } from './actions/chef-action';
 import { RecipeEffects } from './effects/recipe-effects';
 import { ChefEffects } from './effects/chef-effects';
-import { Reducer } from './reducer/index';
+import { reducer } from './reducer/index';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 export var AppModule = (function () {
     function AppModule() {
@@ -57,16 +55,16 @@ export var AppModule = (function () {
                 AngularFireModule.initializeApp(firebaseConfig),
                 MaterialModule.forRoot(),
                 FlexLayoutModule.forRoot(),
-                EffectsModule.runAfterBootstrap(RecipeEffects),
+                StoreModule.provideStore(reducer),
                 EffectsModule.runAfterBootstrap(ChefEffects),
-                StoreModule.provideStore({ Reducer: Reducer }),
+                EffectsModule.runAfterBootstrap(RecipeEffects),
                 StoreDevtoolsModule.instrumentOnlyWithExtension(),
                 ReactiveFormsModule,
                 BrowserModule,
                 FormsModule,
                 HttpModule
             ],
-            providers: [RecipeService, RecipeActions, ChefActions],
+            providers: [RecipeService],
             entryComponents: [
                 ChefFormComponent,
                 RecipeFormComponent

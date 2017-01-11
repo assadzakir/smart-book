@@ -14,9 +14,7 @@ export class ChefDetailsComponent implements OnInit {
     chef$: Observable<any>;
     chefName: string;
 
-    constructor(private recipeService: RecipeService, private route: ActivatedRoute) {
-
-    }
+    constructor(private recipeService: RecipeService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         if (this.route.snapshot.params['name']) {

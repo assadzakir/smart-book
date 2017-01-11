@@ -35,7 +35,6 @@ export class NewRecipeComponent implements OnInit {
 
 
     save(form) {
-        debugger;
         this.recipeServices.createNewRecipe(this.chefID, form.value)
             .subscribe(() => {
                 alert("New Recipe has been created successfully");
